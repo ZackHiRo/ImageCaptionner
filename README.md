@@ -68,12 +68,12 @@ Our hybrid models achieve state-of-the-art results on the MS COCO dataset, with 
 
 ### 6. Model Architectures  
 #### EfficientNet + Transformer  
-![EfficientNet Scaling](https://via.placeholder.com/400x200?text=EfficientNet+Compound+Scaling)  
+![EfficientNet Scaling](src/efficientnet.jpg)  
 - **Encoder**: EfficientNet-B3 with compound scaling (width, depth, resolution).  
 - **Decoder**: Transformer with 8 layers and GPT-2 tokenizer.  
 
 #### ResNet + LSTM  
-![ResNet Block](https://via.placeholder.com/400x200?text=ResNet+Residual+Block)  
+![ResNet Block](src/resnet-e1548261477164_2_mD02h5A.png)  
 - **Encoder**: ResNet-50 with residual connections.  
 - **Decoder**: LSTM with soft attention.  
 
@@ -81,7 +81,7 @@ Our hybrid models achieve state-of-the-art results on the MS COCO dataset, with 
 
 ### 7. Results  
 #### Training Curves  
-![Training Loss](https://via.placeholder.com/600x300?text=Training+and+Validation+Loss+Plots)  
+![Training Loss](src/loss_efficientnet.png)  
 - EfficientNet converges faster with lower validation loss.  
 
 #### Evaluation Metrics  
@@ -130,7 +130,7 @@ We use the **MS COCO** dataset:
 - 120k images with 5 captions each.  
 - Preprocessing: Resize, crop, normalize, and tokenize captions.  
 
-![COCO Samples](https://via.placeholder.com/600x200?text=COCO+Dataset+Samples)  
+![COCO Samples](src/dataset.png)  
 
 ---
 
