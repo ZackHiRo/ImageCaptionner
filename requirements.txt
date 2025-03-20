@@ -1,0 +1,17 @@
+torch
+torchvision
+tensorflow
+matplotlib
+transformers
+Pillow
+timm
+pycocotools
+numpy
+pycocoevalcap
+rouge
+flask
+flask-sqlalchemy
+pillow
+gunicorn
+werkzeug
+nltk
