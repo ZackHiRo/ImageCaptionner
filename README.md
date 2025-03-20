@@ -28,7 +28,7 @@
 ---
 
 ### 2. Demo  
-![Demo](https://via.placeholder.com/600x300?text=Generated+Caption+Demo)  
+![Demo](src/demo.jpg)  
 *Example: "A fire truck is parked in the street in front of a building."*  
 
 ---
