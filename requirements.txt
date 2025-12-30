@@ -1,17 +1,19 @@
-torch
-torchvision
-tensorflow
-matplotlib
-transformers
-Pillow
-timm
-pycocotools
-numpy
-pycocoevalcap
-rouge
-flask
-flask-sqlalchemy
-pillow
-gunicorn
-werkzeug
-nltk
+torch>=2.0.0
+torchvision>=0.15.0
+matplotlib>=3.7.0
+transformers>=4.30.0
+Pillow>=10.0.0
+timm>=0.9.0
+pycocotools>=2.0.6
+numpy>=1.24.0
+pycocoevalcap>=1.2
+rouge>=1.0.1
+flask>=2.3.0
+flask-sqlalchemy>=3.0.0
+gunicorn>=21.2.0; sys_platform != "win32"
+waitress>=2.1.0; sys_platform == "win32"
+werkzeug>=2.3.0
+nltk>=3.8.1
+python-dotenv>=1.0.0
+flask-limiter>=3.0.0
+requests>=2.31.0

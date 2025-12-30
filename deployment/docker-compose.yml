@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # Image Captioning App (EfficientNet)
+  image-captioner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: image-captioner
+    ports:
+      - "5000:5000"  # Change if this port conflicts with your other app
+    environment:
+      - SESSION_SECRET=${SESSION_SECRET:-change-this-to-a-secure-random-string}
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Optional: Mount uploads directory if you want persistence
+      - ./uploads:/app/uploads
+    restart: unless-stopped
+    networks:
+      - app-network
+    # Resource limits (adjust based on your droplet size)
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '1'
+          memory: 1G
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s  # Give time for model loading
+
+  # n8n (if you want to manage it via docker-compose)
+  # Uncomment and configure if needed
+  # n8n:
+  #   image: n8nio/n8n:latest
+  #   container_name: n8n
+  #   ports:
+  #     - "5678:5678"  # Default n8n port
+  #   environment:
+  #     - N8N_BASIC_AUTH_ACTIVE=true
+  #     - N8N_BASIC_AUTH_USER=${N8N_USER:-admin}
+  #     - N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD:-change-me}
+  #   volumes:
+  #     - n8n_data:/home/node/.n8n
+  #   restart: unless-stopped
+  #   networks:
+  #     - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+# volumes:
+#   n8n_data:
+

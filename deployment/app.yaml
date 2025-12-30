@@ -1,0 +1,14 @@
+runtime: python310
+instance_class: F4_1G
+
+env_variables:
+  SESSION_SECRET: "change-this-to-a-secure-random-string"
+
+handlers:
+- url: /.*
+  script: auto
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 3
+

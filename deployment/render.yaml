@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: image-captioner
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: FLASK_ENV
+        value: production
+      - key: PYTHONUNBUFFERED
+        value: "1"
+    healthCheckPath: /health
+    # Render free tier: 512MB RAM, 0.5 CPU
+    # Adjust workers based on available memory
+    # Using 1 worker for free tier to conserve memory
+    buildCommand: ""
+    startCommand: gunicorn app_production:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120 --threads 2
+

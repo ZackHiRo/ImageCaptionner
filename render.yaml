@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: image-captioner
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: FLASK_ENV
+        value: production
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: LOAD_MODELS
+        value: "true"
+      - key: USE_OPTIMIZED_MODELS
+        value: "true"
+      # IMPORTANT: Set EFFICIENTNET_MODEL_URL to your model download URL
+      # Example: https://drive.google.com/uc?export=download&id=YOUR_FILE_ID
+      - key: EFFICIENTNET_MODEL_URL
+        sync: false  # Set this manually in Render dashboard
+      - key: LOAD_MODELS
+        value: "true"
+      - key: USE_OPTIMIZED_MODELS
+        value: "true"
+    healthCheckPath: /health
+    # Render free tier: 512MB RAM, 0.5 CPU
+    # Using 1 worker for free tier to conserve memory
+    buildCommand: ""
+    startCommand: gunicorn app_production:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120 --threads 2
+

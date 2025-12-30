@@ -1,3 +1,7 @@
+"""
+Main entry point for development (Backward Compatibility)
+"""
+
 from app import app
 
 if __name__ == "__main__":

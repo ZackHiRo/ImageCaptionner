@@ -1,0 +1,15 @@
+# Additional requirements for advanced training and hyperparameter optimization
+# Install with: pip install -r requirements_training.txt
+
+# Hyperparameter optimization
+optuna>=3.0.0
+plotly>=5.0.0  # For Optuna visualizations
+
+# Experiment tracking
+wandb>=0.15.0  # Weights & Biases
+tensorboard>=2.13.0  # TensorBoard
+mlflow>=2.5.0  # MLflow (optional)
+
+# Advanced training utilities
+scikit-learn>=1.3.0  # For cross-validation, etc.
+
